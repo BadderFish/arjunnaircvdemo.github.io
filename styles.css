@@ -158,6 +158,7 @@ button.btn{
 /* HERO */
 .hero{
   padding: 58px 0 30px;
+  background: var(--bg);
 }
 .hero-grid{
   display:grid;
@@ -204,24 +205,21 @@ h1{
 }
 .meta a{ color: var(--text); }
 
-/* Section styling
-   IMPORTANT FIX:
-   - previously .section.alt had transparency that let the body gradient “bleed”
-   - now each section paints a stable background so no random horizontal banding */
+/* Section styling - Fixed to prevent gradient bleed */
 .section{
-  position: relative; /* for ::before overlays */
+  position: relative;
   padding: 52px 0;
-  background: transparent;
+  background: var(--bg);
 }
 
-/* “ALT” sections get a consistent fill */
+/* "ALT" sections get a solid darker fill to create visual separation */
 .section.alt{
-  background: rgba(255,255,255,0.025);
+  background: var(--panel-2);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-/* optional top glow that stays within the section */
+/* Subtle top glow for alt sections */
 .section.alt::before{
   content:"";
   position:absolute;
