@@ -1,0 +1,259 @@
+{
+  "personal": {
+    "name": "Arjun Nair",
+    "initials": "AN",
+    "role": "M.Sc. Aeronautical Engineering (Politecnico di Milano)",
+    "title": "Aeronautical engineer-in-training building validated models, practical prototypes, and reliable systems through code and design.",
+    "lead": "Detail-oriented graduate student with foundations in aerodynamics, mechanical design, materials research, and software-driven engineering—comfortable across numerical methods, programming, automation, experiments, and fast-paced teams.",
+    "email": "arjunnair0404@gmail.com",
+    "phone": "+39 350 881 8171",
+    "whatsapp": "+919923963928",
+    "linkedin": "https://www.linkedin.com/in/arjunnair0404/",
+    "github": "https://github.com/BadderFish",
+    "githubUsername": "BadderFish"
+  },
+  "highlights": [
+    "Coded & validated aero methods (Hess–Smith, lifting-line) with < 2% lift error vs references.",
+    "Built embedded ML brake-assist prototype with Python/ESP32 deployment (LiDAR + Hall sensors).",
+    "CAD/R&D experience on precision actuator components for aerospace applications.",
+    "Led ops for a 30+ member multidisciplinary startup team."
+  ],
+  "highlightChips": [
+    "Python / MATLAB",
+    "Aerodynamics",
+    "ANSYS / CFD",
+    "SolidWorks",
+    "ML / Data Analysis",
+    "Embedded / IoT"
+  ],
+  "about": {
+    "description": "I'm an aeronautical engineering graduate student with a strong base in mechanical design, aerodynamics, materials characterization, and software-driven engineering. I enjoy work that connects theory to reality: writing code for numerical models, automating data workflows, building embedded systems, and delivering solutions that improve speed, accuracy, or reliability in a team setting.",
+    "atAGlance": [
+      "Python/MATLAB programming for numerical modeling & validation",
+      "CAD/CAE + manufacturing-aware detailing",
+      "Embedded systems development with sensors, actuators, IoT deployment",
+      "Data analysis, automation, and ML implementation",
+      "Leadership in high-ownership student & startup environments",
+      "Languages: English (IELTS 8.5 / C2 Proficiency), Hindi, Marathi, Italian (A2)"
+    ]
+  },
+  "education": [
+    {
+      "period": "2025 – Present",
+      "degree": "Politecnico di Milano — M.Sc. Aeronautical Engineering",
+      "location": "Milan, Italy"
+    },
+    {
+      "period": "Aug 2021 – May 2025",
+      "degree": "Vellore Institute of Technology — B.Tech Mechanical Engineering (Minor: Computer Science)",
+      "location": "CGPA: 8.4 / 10 • Vellore, India"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Aerodynamics Laboratory Project",
+      "organization": "Politecnico di Milano",
+      "period": "Oct 2025 – Dec 2025",
+      "chips": ["Aerodynamics", "MATLAB", "Python"],
+      "description": [
+        "Implemented Hess–Smith panel method and Weissinger lifting-line to compute Cp, CL, Cm and induced-drag trends.",
+        "Validated vs XFOIL/XFLR5 with < 2% relative error in lift across multiple AoA.",
+        "Compared NACA 0008 vs AG26 at Re = 3×10⁵ to 5×10⁵, analyzing transition/separation movement.",
+        "Interpreted lift distribution and induced drag sensitivity using low-speed configurations (incl. Cessna 172 comparison)."
+      ],
+      "link": {
+        "url": "https://github.com/BadderFish/aerodynamics-lab-project",
+        "text": "View on GitHub"
+      }
+    },
+    {
+      "title": "ML-Based External Braking Assistance",
+      "organization": "B.Tech Thesis II",
+      "period": "Dec 2024 – Apr 2025",
+      "chips": ["Embedded Systems", "ML Fundamentals", "ESP32"],
+      "description": [
+        "Designed ECU-based brake pre-loading system for drum-brake vehicles using LiDAR + Hall sensors and a linear actuator.",
+        "Trained linear regression to predict pre-loading force from real-time distance + wheel-speed data.",
+        "Deployed model on an ESP32; validated prototype with bench + dynamic testing for faster engagement.",
+        "Kept architecture low-cost, non-invasive, and aftermarket-friendly."
+      ],
+      "link": {
+        "url": "https://drive.google.com/file/d/16ediztPnaXHNcpwscC8QxMqGiOxGC68E/view?usp=sharing",
+        "text": "Project Report"
+      }
+    },
+    {
+      "title": "Fe-Based Soft Magnetic Composites",
+      "organization": "B.Tech Thesis I",
+      "period": "Jun 2024 – Feb 2025",
+      "chips": ["Materials Characterization", "XRD", "FE-SEM"],
+      "description": [
+        "Studied ball milling + Al/Si reinforcements on Fe-based soft magnetic composites for EV/electromagnetic applications.",
+        "Processed four compositions (Fe, Fe–Al, Fe–Si, Fe–Al–Si) at BPR 10:1 up to 4 hours.",
+        "Characterized phase evolution and microstructure with XRD, FE-SEM, EDS; correlated particle refinement (< 2 µm) with reinforcement-assisted milling behavior."
+      ],
+      "link": {
+        "url": "https://drive.google.com/drive/folders/1Fh55TeDfEFLSQYZN5aBXgwjZWZrFycPa?usp=sharing",
+        "text": "Project Report"
+      }
+    },
+    {
+      "title": "Laser Shock Peening on Inconel 718",
+      "organization": "",
+      "period": "Mar 2023 – Mar 2024",
+      "chips": ["Materials Characterization", "Experimental Methods", "Testing"],
+      "description": [
+        "Experimental + literature analysis of LSP effects on surface integrity and fatigue-relevant parameters.",
+        "Hands-on lab work: wire EDM specimen preparation and controlled peening trials."
+      ]
+    },
+    {
+      "title": "Active Debris Removal Strategies",
+      "organization": "SEDS-VIT",
+      "period": "Feb 2023 – Sep 2023",
+      "chips": ["Space Systems", "Research", "Technical Documentation"],
+      "description": [
+        "Structured literature review on active debris removal mission concepts.",
+        "Prepared technical study toward aerospace conference submission, focusing on feasibility, risk, and maturity."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Senior Operations Head",
+      "company": "Seculinx (VIT incubated startup)",
+      "period": "Oct 2024 – May 2025",
+      "location": "Vellore, India",
+      "chips": ["IoT", "Operations Management", "Team Leadership"],
+      "description": [
+        "Led operations for a 30+ member multidisciplinary team; improved coordination across design, electronics, and manufacturing workflows.",
+        "Oversaw CAD/CAM prototyping cycles ensuring manufacturability, dimensional accuracy, and on-time delivery.",
+        "Supported IoT integration using ESP32-based sensor platforms for validation and deployment readiness."
+      ]
+    },
+    {
+      "title": "Aerospace Design Vehicle Project Intern",
+      "company": "Brahmastra Aerospace & Defence Pvt. Ltd.",
+      "period": "Oct 2023 – Nov 2023",
+      "location": "Pune, India",
+      "chips": ["CFD", "ANSYS", "Aerodynamics"],
+      "description": [
+        "Designed/simulated hypersonic configuration at Mach 10 and 90,000 m with compressible-flow effects and conical shocks.",
+        "Ran CFD in ANSYS Fluent (k–ω SST), producing converged pressure/velocity fields and lift/drag plots.",
+        "Designed NACA-based high-pressure turbine blade; performed modal analysis under combined loads."
+      ],
+      "link": {
+        "url": "https://drive.google.com/file/d/1O-PqcHigFC0YrrCoXc2sTLe8qqGJkwPb/view?usp=sharing",
+        "text": "Internship Report"
+      }
+    },
+    {
+      "title": "Mechanical Engineering Intern (CAD & R&D)",
+      "company": "Super Technologies Pvt. Ltd.",
+      "period": "Sep 2023 – Oct 2023",
+      "location": "Aerospace Division, Hyderabad, India",
+      "chips": ["SolidWorks", "CAD", "GD&T"],
+      "description": [
+        "Designed and detailed 25+ precision actuator components for a ballistic missile fin actuation system, aligned with DRDO standards.",
+        "Modeled assemblies (housings, gear trains, rotor components, sealing) using advanced SolidWorks features.",
+        "Produced manufacturing drawings; resolved constraint/geometry issues to support fabrication readiness."
+      ],
+      "link": {
+        "url": "https://drive.google.com/file/d/1jUvY4dPjQs530UA1vjdfEufW8q0Ix46V/view?usp=sharing",
+        "text": "Internship Report"
+      }
+    }
+  ],
+  "skills": {
+    "Engineering & Analysis": [
+      "Aerodynamics",
+      "Finite Element Analysis",
+      "Structural Analysis",
+      "Materials & Composites",
+      "Materials Characterization",
+      "Experimental Methods",
+      "Numerical Modeling"
+    ],
+    "Design & Simulation": [
+      "SolidWorks",
+      "ANSYS",
+      "MATLAB",
+      "CAD (Computer-Aided Design)",
+      "CFD (Computational Fluid Dynamics)",
+      "GD&T (Geometric Dimensioning & Tolerancing)",
+      "Parametric Design",
+      "Turbomachinery Design"
+    ],
+    "Programming & Systems": [
+      "Python",
+      "Data Analysis",
+      "ML Fundamentals",
+      "Embedded Systems",
+      "IoT",
+      "Sensors & Actuators",
+      "Git/GitHub",
+      "Prompt Engineering",
+      "HTML/CSS/JavaScript",
+      "Technical Documentation"
+    ],
+    "Operations": [
+      "Operations Management",
+      "Team Leadership",
+      "Project Coordination",
+      "Timeline Management",
+      "KPI Reporting",
+      "Cross-team Coordination"
+    ]
+  },
+  "certifications": "SolidWorks (CAD, FEA, Drawings, Advanced Features) • ANSYS (CFD & FEA) • MATLAB • Python (Engineering & Data Analysis) • GD&T • G-Code/CNC Programming • LabVIEW • Git/GitHub • Prompt Engineering & Generative AI • Excel",
+  "languages": "English (IELTS 8.5 / C2 Proficiency) • Hindi (Native) • Marathi (Native) • Italian (A2)",
+  "leadership": [
+    {
+      "title": "Toastmasters VIT — President / Former VP–Marketing",
+      "period": "Jan 2022 – May 2024",
+      "description": [
+        "Mentored 30+ members for competitive speaking; contributed to multiple national-level wins while managing club operations."
+      ]
+    },
+    {
+      "title": "SEDS-VIT — Outreach Manager / Senior Core Member",
+      "period": "Jan 2022 – Jan 2025",
+      "description": [
+        "Organized 10+ outreach sessions for underserved schools; mentored students toward technical events and projects.",
+        "Contributed to space-education initiatives and conference-paper development."
+      ]
+    },
+    {
+      "title": "Johns Hopkins University — Hopkins Engineering Exploratory Program (Ambassador)",
+      "period": "Jun 2024",
+      "description": [
+        "Selected as Program Ambassador; engaged in 1:1 academic discussions with 25+ faculty members on research and graduate pathways."
+      ]
+    },
+    {
+      "title": "Industry-Academia Networking Conclave (IANC) — Student Organizer",
+      "period": "Jan 2024 – Mar 2024",
+      "description": [
+        "Coordinated an event featuring 70+ mechanical companies; supported showcases, hackathons, and internship drives.",
+        "Hosted expert sessions and moderated discussions with visiting professionals."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "title": "Teaching Underprivileged Children",
+      "organization": "Multiple NGOs",
+      "period": "Feb 2022 – Dec 2024"
+    },
+    {
+      "title": "ISRO World Space Awareness Week (VIT)",
+      "period": "Oct 2022",
+      "details": "event ops + interactive sessions for 300+ school students"
+    }
+  ],
+  "contact": {
+    "title": "Let's talk",
+    "description": "Email is usually the fastest way to reach me.",
+    "description2": "Open to internships, research collaborations, and engineering roles."
+  }
+}
