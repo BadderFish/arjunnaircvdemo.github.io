@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import portfolioData from '../data/portfolio.json';
+import DarkModeToggle from './DarkModeToggle';
 
 interface HeaderProps {
   activeSection: string;
@@ -122,6 +123,7 @@ export default function Header({ activeSection }: HeaderProps) {
               {link.label}
             </a>
           ))}
+          <DarkModeToggle />
           <a
             href="#contact"
             className={`btn small ${activeSection === 'contact' ? 'active' : ''}`}
@@ -142,6 +144,9 @@ export default function Header({ activeSection }: HeaderProps) {
             {link.label}
           </a>
         ))}
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0' }}>
+          <DarkModeToggle />
+        </div>
         <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>
           Contact Me
         </a>

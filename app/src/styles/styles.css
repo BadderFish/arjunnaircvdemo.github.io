@@ -12,6 +12,28 @@
   --shadow: 0 20px 60px rgba(0,0,0,0.45);
 }
 
+/* Light mode colors */
+:root:not(.dark-mode){
+  --bg: #ffffff;
+  --panel: #f8f9fa;
+  --panel-2: #f1f3f5;
+  --text: #1a1b1e;
+  --muted: #6c757d;
+  --line: rgba(0,0,0,0.08);
+  --accent: #0284c7;
+  --accent-2: #7c3aed;
+  --shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* Smooth transitions for theme switching */
+html{
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body{
+  transition: background 0.3s ease;
+}
+
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 
@@ -27,6 +49,14 @@ body{
     var(--bg);
 
   line-height: 1.6;
+}
+
+/* Light mode body adjustments */
+:root:not(.dark-mode) body{
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(2,132,199,0.06), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(124,58,237,0.05), transparent 55%),
+    var(--bg);
 }
 
 /* Links */
@@ -74,8 +104,13 @@ a:hover{
   background: rgba(11,12,16,0.72);
   backdrop-filter: blur(10px);
   transform: translateY(0);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, background 0.3s ease;
   min-height: fit-content;
+}
+
+/* Light mode header */
+:root:not(.dark-mode) .site-header{
+  background: rgba(255,255,255,0.85);
 }
 .site-header.hidden{
   transform: translateY(-100%);
@@ -189,6 +224,42 @@ a:hover{
   top: 0;
 }
 
+/* Dark mode toggle */
+.dark-mode-toggle{
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-width: 40px;
+  height: 40px;
+}
+
+.dark-mode-toggle:hover{
+  background: var(--panel);
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.dark-mode-toggle:active{
+  transform: scale(0.95);
+}
+
+.dark-mode-toggle svg{
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover svg{
+  transform: rotate(15deg);
+}
+
 /* Mobile menu dropdown */
 .mobile-menu{
   display: none;
@@ -204,7 +275,12 @@ a:hover{
   z-index: 49;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease, background 0.3s ease;
+}
+
+/* Light mode mobile menu */
+:root:not(.dark-mode) .mobile-menu{
+  background: rgba(255,255,255,0.98);
 }
 
 .mobile-menu.active{
