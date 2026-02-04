@@ -1,4 +1,6 @@
 import portfolioData from '../data/portfolio.json';
+import ContactForm from './ContactForm';
+import { useEntranceAnimation } from '../hooks/useEntranceAnimation';
 
 const WhatsAppIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
@@ -15,16 +17,17 @@ const LinkedInIcon = () => (
 export default function Contact() {
   const { personal, contact } = portfolioData;
   const currentYear = new Date().getFullYear();
+  const { ref, isVisible } = useEntranceAnimation();
 
   return (
-    <section id="contact" className="section alt">
+    <section id="contact" className="section alt" ref={ref as React.RefObject<HTMLElement>}>
       <div className="container">
-        <div className="section-title">
+        <div className={`section-title animate-in ${isVisible ? 'visible' : ''}`}>
           <h2>Contact Me</h2>
           <p>{contact.description2}</p>
         </div>
 
-        <div className="card contact-card">
+        <div className={`card contact-card animate-in ${isVisible ? 'visible' : ''}`} style={{ animationDelay: '0.1s' }}>
           <div>
             <h3>{contact.title}</h3>
             <p className="muted">{contact.description}</p>
@@ -42,6 +45,10 @@ export default function Contact() {
               LinkedIn
             </a>
           </div>
+        </div>
+
+        <div className={`animate-in ${isVisible ? 'visible' : ''}`} style={{ animationDelay: '0.2s' }}>
+          <ContactForm />
         </div>
 
         <p className="footnote">

@@ -1,4 +1,5 @@
 import portfolioData from '../data/portfolio.json';
+import { useEntranceAnimation } from '../hooks/useEntranceAnimation';
 
 const DocumentIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style={{ marginRight: '6px' }}>
@@ -15,16 +16,17 @@ const ExternalIcon = () => (
 
 export default function Experience() {
   const { experience } = portfolioData;
+  const { ref, isVisible } = useEntranceAnimation();
 
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section" ref={ref as React.RefObject<HTMLElement>}>
       <div className="container">
-        <div className="section-title">
+        <div className={`section-title animate-in ${isVisible ? 'visible' : ''}`}>
           <h2>Professional Experience</h2>
           <p>Leadership + delivery across startups and aerospace-focused internships.</p>
         </div>
 
-        <div className="grid cards-3">
+        <div className={`grid cards-3 animate-in ${isVisible ? 'visible' : ''}`} style={{ animationDelay: '0.1s' }}>
           {experience.map((exp, idx) => (
             <div key={idx} className="card">
               <div className="chips">

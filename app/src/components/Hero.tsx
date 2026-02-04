@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import portfolioData from '../data/portfolio.json';
 
 const LinkedInIcon = () => (
@@ -15,35 +14,12 @@ const GitHubIcon = () => (
 
 export default function Hero() {
   const { personal, highlights, highlightChips } = portfolioData;
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const titleEl = titleRef.current;
-    if (!titleEl) return;
-
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    const text = personal.title;
-    titleEl.textContent = '';
-    let i = 0;
-
-    const tick = () => {
-      if (titleEl) {
-        titleEl.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) requestAnimationFrame(tick);
-      }
-    };
-
-    setTimeout(() => requestAnimationFrame(tick), 120);
-  }, [personal.title]);
 
   return (
     <section className="hero">
       <div className="container hero-grid">
         <div>
-          <h1 ref={titleRef}>{personal.title}</h1>
+          <h1>{personal.title}</h1>
 
           <p className="lead">{personal.lead}</p>
 

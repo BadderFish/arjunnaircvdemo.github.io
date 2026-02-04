@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import portfolioData from '../data/portfolio.json';
+import { useEntranceAnimation } from '../hooks/useEntranceAnimation';
 
 const GitHubIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style={{ marginRight: '6px' }}>
@@ -23,6 +24,7 @@ const ExternalIcon = () => (
 export default function Projects() {
   const { projects } = portfolioData;
   const [searchQuery, setSearchQuery] = useState('');
+  const { ref, isVisible } = useEntranceAnimation();
 
   const filteredProjects = projects.filter((project) => {
     const searchText = searchQuery.toLowerCase();
@@ -31,14 +33,14 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="section alt">
+    <section id="projects" className="section alt" ref={ref as React.RefObject<HTMLElement>}>
       <div className="container">
-        <div className="section-title">
+        <div className={`section-title animate-in ${isVisible ? 'visible' : ''}`}>
           <h2>Projects & Research</h2>
           <p>Selected work spanning aerodynamics, embedded systems, materials, and space systems.</p>
         </div>
 
-        <div className="search-row">
+        <div className={`search-row animate-in ${isVisible ? 'visible' : ''}`} style={{ animationDelay: '0.1s' }}>
           <input
             id="projectSearch"
             className="search"
@@ -49,7 +51,7 @@ export default function Projects() {
           />
         </div>
 
-        <div className="grid cards-3">
+        <div className={`grid cards-3 animate-in ${isVisible ? 'visible' : ''}`} style={{ animationDelay: '0.2s' }}>
           {filteredProjects.map((project, idx) => (
             <article key={idx} className="card project">
               <div className="chips">
