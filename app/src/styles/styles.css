@@ -259,7 +259,7 @@ button.btn{
 
 /* HERO */
 .hero{
-  padding: 58px 0 30px;
+  padding: 48px 0 20px;
   background: var(--bg);
   /* Account for fixed header */
   margin-top: 72px;
@@ -267,8 +267,51 @@ button.btn{
 .hero-grid{
   display:grid;
   grid-template-columns: 1.25fr 0.75fr;
-  gap: 26px;
+  gap: 24px;
   align-items: start;
+}
+
+/* First-load hero animations */
+.hero-left {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.hero-left.loaded {
+  animation: slideInLeft 0.7s ease-out forwards;
+}
+
+.hero-right {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.hero-right.loaded {
+  animation: slideInRight 0.7s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-left,
+  .hero-right {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 h1{
@@ -279,16 +322,49 @@ h1{
 .lead{
   color: var(--muted);
   font-size: 16px;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
 }
 
 .hero-actions{
   display:flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 18px;
+  margin-bottom: 0;
 }
 
+/* Hero contact info (right column) */
+.hero-contact {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-contact .meta-item {
+  display:flex;
+  gap: 10px;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.hero-contact .meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.hero-contact .meta-label{
+  width: 85px;
+  color: rgba(233,234,240,0.70);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.hero-contact .meta-item a{
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Legacy meta styles (kept for other sections if needed) */
 .meta{
   display:grid;
   grid-template-columns: 1fr;
@@ -535,6 +611,11 @@ h1{
   .two-col{ grid-template-columns: 1fr; }
   .t-item{ grid-template-columns: 1fr; }
   .meta-item{ flex-wrap: wrap; }
+
+  /* Hero contact stacks below highlights on mobile */
+  .hero-contact {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 768px){
