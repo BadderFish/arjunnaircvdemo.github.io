@@ -1,7 +1,9 @@
 name: Deploy React App to GitHub Pages
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Also allow manual trigger
 
 permissions:
   contents: read
