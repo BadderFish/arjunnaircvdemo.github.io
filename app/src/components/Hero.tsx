@@ -48,6 +48,25 @@ export default function Hero() {
               GitHub
             </a>
           </div>
+
+          <div className="hero-contact-row">
+            <span className="contact-item">
+              <span className="contact-label">Email:</span>
+              <a href={`mailto:${personal.email}`}>{personal.email}</a>
+            </span>
+            <span className="contact-separator">|</span>
+            <span className="contact-item">
+              <span className="contact-label">Phone:</span>
+              <a href={`tel:${personal.phone}`}>{personal.phone}</a>
+            </span>
+            <span className="contact-separator">|</span>
+            <span className="contact-item">
+              <span className="contact-label">WhatsApp:</span>
+              <a href={`https://wa.me/${personal.whatsapp.replace(/\+/g, '')}`} target="_blank" rel="noreferrer">
+                {personal.whatsapp}
+              </a>
+            </span>
+          </div>
         </div>
 
         <div className={`hero-right ${isLoaded ? 'loaded' : ''}`}>
@@ -63,23 +82,6 @@ export default function Hero() {
               {highlightChips.map((chip, idx) => (
                 <span key={idx} className="chip">{chip}</span>
               ))}
-            </div>
-          </div>
-
-          <div className="hero-contact">
-            <div className="meta-item">
-              <span className="meta-label">Email</span>
-              <a href={`mailto:${personal.email}`}>{personal.email}</a>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Phone</span>
-              <a href={`tel:${personal.phone}`}>{personal.phone}</a>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">WhatsApp</span>
-              <a href={`https://wa.me/${personal.whatsapp.replace(/\+/g, '')}`} target="_blank" rel="noreferrer">
-                {personal.whatsapp}
-              </a>
             </div>
           </div>
         </div>

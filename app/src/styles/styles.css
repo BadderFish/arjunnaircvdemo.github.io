@@ -259,7 +259,7 @@ button.btn{
 
 /* HERO */
 .hero{
-  padding: 48px 0 20px;
+  padding: 48px 0 12px;
   background: var(--bg);
   /* Account for fixed header */
   margin-top: 72px;
@@ -332,36 +332,44 @@ h1{
   margin-bottom: 0;
 }
 
-/* Hero contact info (right column) */
-.hero-contact {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-
-.hero-contact .meta-item {
-  display:flex;
-  gap: 10px;
+/* Hero contact info (horizontal row on left) */
+.hero-contact-row {
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.hero-contact .meta-item:last-child {
-  margin-bottom: 0;
-}
-
-.hero-contact .meta-label{
-  width: 85px;
-  color: rgba(233,234,240,0.70);
-  font-weight: 600;
+  gap: 8px 12px;
+  margin-top: 14px;
   font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-.hero-contact .meta-item a{
+.contact-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: rgba(233,234,240,0.75);
+}
+
+.contact-item a {
   color: var(--text);
-  font-size: 14px;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.contact-separator {
+  color: rgba(233,234,240,0.35);
+  user-select: none;
 }
 
 /* Legacy meta styles (kept for other sections if needed) */
@@ -612,9 +620,18 @@ h1{
   .t-item{ grid-template-columns: 1fr; }
   .meta-item{ flex-wrap: wrap; }
 
-  /* Hero contact stacks below highlights on mobile */
-  .hero-contact {
-    margin-top: 20px;
+  /* Hero contact row wraps on mobile but stays horizontal-first */
+  .hero-contact-row {
+    gap: 6px 10px;
+    font-size: 12px;
+  }
+
+  .contact-separator {
+    display: none;
+  }
+
+  .contact-item {
+    white-space: normal;
   }
 }
 
