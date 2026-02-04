@@ -48,6 +48,18 @@ export default function Header({ activeSection }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScroll, preventHide]);
 
+  // Listen for custom scroll events from Hero CTAs or other components
+  useEffect(() => {
+    const handleScrollToSection = () => {
+      setHeaderHidden(false);
+      setPreventHide(true);
+      setTimeout(() => setPreventHide(false), 1000);
+    };
+
+    window.addEventListener('scrollToSection', handleScrollToSection);
+    return () => window.removeEventListener('scrollToSection', handleScrollToSection);
+  }, []);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const target = document.querySelector(href);

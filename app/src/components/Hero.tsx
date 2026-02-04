@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import portfolioData from '../data/portfolio.json';
+import { useScrollToSection } from '../hooks/useScrollToSection';
 
 const LinkedInIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
@@ -16,6 +17,7 @@ const GitHubIcon = () => (
 export default function Hero() {
   const { personal, highlights, highlightChips } = portfolioData;
   const [isLoaded, setIsLoaded] = useState(false);
+  const { scrollToSection } = useScrollToSection();
 
   useEffect(() => {
     // Trigger first-load animation
@@ -28,6 +30,11 @@ export default function Hero() {
     }
   }, []);
 
+  const handleCTAClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
+
   return (
     <section className="hero">
       <div className="container hero-grid">
@@ -37,8 +44,12 @@ export default function Hero() {
           <p className="lead">{personal.lead}</p>
 
           <div className="hero-actions">
-            <a className="btn" href="#projects">View projects</a>
-            <a className="btn ghost" href="#contact">Get in touch</a>
+            <a className="btn" href="#projects" onClick={(e) => handleCTAClick(e, '#projects')}>
+              View projects
+            </a>
+            <a className="btn ghost" href="#contact" onClick={(e) => handleCTAClick(e, '#contact')}>
+              Get in touch
+            </a>
             <a className="btn ghost" href={personal.linkedin} target="_blank" rel="noreferrer">
               <LinkedInIcon />
               LinkedIn
