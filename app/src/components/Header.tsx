@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import portfolioData from '../data/portfolio.json';
 
 interface HeaderProps {
@@ -9,7 +9,7 @@ export default function Header({ activeSection }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const [lastScroll, setLastScroll] = useState(0);
-  const [preventHide, setPreventHide] = useState(false);
+  const preventHideRef = useRef(false);
 
   const { personal } = portfolioData;
 
@@ -33,7 +33,7 @@ export default function Header({ activeSection }: HeaderProps) {
             setHeaderHidden(false);
           } else if (currentScroll < lastScroll) {
             setHeaderHidden(false);
-          } else if (currentScroll > lastScroll && currentScroll > 200 && !preventHide) {
+          } else if (currentScroll > lastScroll && currentScroll > 200 && !preventHideRef.current) {
             setHeaderHidden(true);
           }
 
@@ -46,14 +46,16 @@ export default function Header({ activeSection }: HeaderProps) {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScroll, preventHide]);
+  }, [lastScroll]);
 
   // Listen for custom scroll events from Hero CTAs or other components
   useEffect(() => {
     const handleScrollToSection = () => {
       setHeaderHidden(false);
-      setPreventHide(true);
-      setTimeout(() => setPreventHide(false), 1000);
+      preventHideRef.current = true;
+      setTimeout(() => {
+        preventHideRef.current = false;
+      }, 1000);
     };
 
     window.addEventListener('scrollToSection', handleScrollToSection);
@@ -65,8 +67,10 @@ export default function Header({ activeSection }: HeaderProps) {
     const target = document.querySelector(href);
     if (target) {
       setHeaderHidden(false);
-      setPreventHide(true);
-      setTimeout(() => setPreventHide(false), 1000);
+      preventHideRef.current = true;
+      setTimeout(() => {
+        preventHideRef.current = false;
+      }, 1000);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       window.history.pushState(null, '', href);
       setMobileMenuOpen(false);
@@ -75,8 +79,10 @@ export default function Header({ activeSection }: HeaderProps) {
 
   const handleBrandClick = () => {
     setHeaderHidden(false);
-    setPreventHide(true);
-    setTimeout(() => setPreventHide(false), 1000);
+    preventHideRef.current = true;
+    setTimeout(() => {
+      preventHideRef.current = false;
+    }, 1000);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     window.history.pushState(null, '', window.location.pathname);
   };

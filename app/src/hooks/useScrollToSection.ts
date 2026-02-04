@@ -12,11 +12,14 @@ export function useScrollToSection() {
     // Dispatch custom event to notify Header to stay visible
     window.dispatchEvent(new CustomEvent('scrollToSection'));
 
-    // Smooth scroll to target
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Small delay to ensure state updates propagate before scroll starts
+    setTimeout(() => {
+      // Smooth scroll to target
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Update URL
-    window.history.pushState(null, '', sectionId);
+      // Update URL
+      window.history.pushState(null, '', sectionId);
+    }, 50);
   }, []);
 
   return { scrollToSection };
