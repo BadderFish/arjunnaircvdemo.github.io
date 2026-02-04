@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -21,6 +22,8 @@ export default function ContactForm() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -64,7 +67,7 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     // Mark all fields as touched
@@ -74,24 +77,61 @@ export default function ContactForm() {
       return;
     }
 
-    // Construct mailto link
-    const subject = encodeURIComponent('Portfolio E-Mail');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
+    setStatus('sending');
+    setStatusMessage('');
 
-    const mailtoLink = `mailto:arjunnair0404@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // Open email client
-    window.location.href = mailtoLink;
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check your .env file.');
+      }
 
-    // Optional: Reset form after sending
-    // setFormData({ name: '', email: '', message: '' });
-    // setTouched({});
-    // setErrors({});
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'arjunnair0404@gmail.com',
+        },
+        publicKey
+      );
+
+      setStatus('success');
+      setStatusMessage('Message sent successfully! I\'ll get back to you soon.');
+
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+      setTouched({});
+      setErrors({});
+
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setStatus('idle');
+        setStatusMessage('');
+      }, 5000);
+
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+      setStatusMessage('Failed to send message. Please try emailing me directly at arjunnair0404@gmail.com');
+
+      // Clear error message after 7 seconds
+      setTimeout(() => {
+        setStatus('idle');
+        setStatusMessage('');
+      }, 7000);
+    }
   };
 
   const hasErrors = Object.keys(errors).length > 0;
+  const isSubmitting = status === 'sending';
 
   return (
     <div className="contact-form-section">
@@ -167,10 +207,29 @@ export default function ContactForm() {
           <button
             type="submit"
             className="form-submit"
-            disabled={hasErrors && (touched.name || touched.email || touched.message)}
+            disabled={isSubmitting || (hasErrors && (touched.name || touched.email || touched.message))}
           >
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
+
+          {statusMessage && (
+            <div
+              className={`status-message ${status}`}
+              role="alert"
+              style={{
+                marginTop: '16px',
+                padding: '12px',
+                borderRadius: '10px',
+                fontSize: '14px',
+                textAlign: 'center',
+                backgroundColor: status === 'success' ? 'rgba(46, 213, 115, 0.15)' : 'rgba(255, 107, 107, 0.15)',
+                border: `1px solid ${status === 'success' ? 'rgba(46, 213, 115, 0.3)' : 'rgba(255, 107, 107, 0.3)'}`,
+                color: status === 'success' ? '#2ed573' : '#ff6b6b'
+              }}
+            >
+              {statusMessage}
+            </div>
+          )}
         </form>
       </div>
     </div>
