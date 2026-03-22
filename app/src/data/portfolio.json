@@ -51,6 +51,22 @@
   ],
   "projects": [
     {
+      "title": "3D Auxetic Lattice — DigiMat Parametric Study",
+      "organization": "Erasmus+ BIP (Polimi × Sorbonne × Univ. Sevilla)",
+      "period": "Feb 2026 – Mar 2026",
+      "chips": ["FEM", "DigiMat", "MATLAB", "Metamaterials"],
+      "description": [
+        "Modelled a 3D re-entrant lattice structure in DigiMat FEM solver as part of a joint Erasmus+ Blended Intensive Programme.",
+        "Conducted parametric study varying beam diameter and base material (TPU-like vs PETG) to characterise auxetic behaviour.",
+        "Extracted logarithmic strain time-histories from uniaxial loading; computed negative Poisson's ratios confirming auxeticity.",
+        "Three-university collaboration covering homogenization methods, Bloch wave mechanics, and locally resonant materials."
+      ],
+      "link": {
+        "url": "https://github.com/BadderFish/erasmus-bip-auxetic-metamaterials",
+        "text": "View on GitHub"
+      }
+    },
+    {
       "title": "Aerodynamics Laboratory Project",
       "organization": "Politecnico di Milano",
       "period": "Oct 2025 – Dec 2025",
